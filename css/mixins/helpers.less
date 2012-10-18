@@ -1,0 +1,92 @@
+@import "../variables/all.less";
+
+/*** Classic clearfix ***/
+* html .clearfix {
+	height: 1%;
+}
+*+html .clearfix {
+	display: inline-block;
+}
+.clearfix:after {
+	content: '.';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+
+/*** SPRITES ***/
+.sprite_map(@itemX, @itemY, @offsetX: 0px, @offsetY: 0px) {
+	background-image: url("@{imgdir}/sprite.png");
+	background-repeat: no-repeat;
+	background-position: -(@spriteBlockSize*(@itemX)+@offsetX) -(@spriteBlockSize*(@itemY)+@offsetY);
+}
+
+/*** Reusable functions ***/
+.clear {
+	clear: both;
+}
+
+.ulReset(@margin: 0, @padding: 0){
+	list-style: none;
+	margin: @margin;
+	padding: @padding;
+	.clearfix;
+}
+
+
+/*** CSS blocks ***/
+.box-sizing(@size: border-box) {
+	-webkit-box-sizing: @size;
+	-moz-box-sizing: @size;
+	box-sizing: @size;
+}
+
+.border-radius(@radius: 5px){
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.box-shadow(@shadow: none){
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	-ms-box-shadow: @shadow;
+	-o-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.animate(@transition: "all 0.3s ease-in-out 0s"){
+	-webkit-transition: e(@transition);
+	-moz-transition: e(@transition);
+	-ms-transition: e(@transition);
+	-o-transition: e(@transition);
+	transition: e(@transition);
+}
+
+// 2-steps gradient (smooth)
+.gradient(@from, @to, @default: @to) {
+	background: @default; /* Old browsers */
+	background: linear-gradient(top,  @from 0%,@from 100%); /* W3C */
+	background: -o-linear-gradient(top,  @from 0%,@to 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  @from 0%,@to 100%); /* IE10+ */
+	background: -moz-linear-gradient(top,  @from 0%, @to 100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(top,  @from 0%,@to 100%); /* Chrome10+,Safari5.1+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@from), color-stop(100%,@to)); /* Chrome,Safari4+ */
+	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '@{from}', endColorstr = '@{to}', GradientType = 0); /* IE6-9 */
+}
+
+// 4-steps gradient (glossy)
+.gradient(@from, @step_1, @step_2, @to) {
+	background: @to; /* Old browsers */
+	background: linear-gradient(top,  @from 0%,@step_1 50%,@step_2 51%,@to 100%); /* W3C */
+	background: -o-linear-gradient(top,  @from 0%,@step_1 50%,@step_2 51%,@to 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  @from 0%,@step_1 50%,@step_2 51%,@to 100%); /* IE10+ */
+	background: -moz-linear-gradient(top,  @from 0%, @step_1 50%, @step_2 51%, @to 100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(top,  @from 0%,@step_1 50%,@step_2 51%,@to 100%); /* Chrome10+,Safari5.1+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@from), color-stop(50%,@step_1), color-stop(51%,@step_2), color-stop(100%,@to)); /* Chrome,Safari4+ */
+	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '@from', endColorstr = '@to', GradientType = 0); /* IE6-9 */
+}

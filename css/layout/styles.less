@@ -1,0 +1,50 @@
+@import "../variables/all.less";
+@import "../mixins/all.less";
+
+article, aside,
+h1, div, p,
+form {
+	.animate();
+
+	background: rgba(0,0,0,0.05);
+}
+
+textarea {
+	max-width: 100%;
+}
+
+aside {
+	h1 {
+		font-size: 1.5em;
+	}
+}
+
+@media all and (min-width: 1300px) {
+	article {
+		> p {
+			&:nth-of-type(3n+1) {
+				clear: left;
+			}
+		}
+	}
+}
+
+@media all and (min-width: 980px) and (max-width: 1300px) {
+	article {
+		> p {
+			&:nth-of-type(2n+1) {
+				clear: left;
+			}
+		}
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 720px) {
+	article {
+		> p {
+			&:nth-of-type(2n+1) {
+				clear: left;
+			}
+		}
+	}
+}

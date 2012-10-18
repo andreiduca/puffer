@@ -1,0 +1,255 @@
+@import "../variables/all.less";
+
+/*** Base Style ***/
+.button,
+.button span
+{
+	display: inline-block;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+    line-height: 1;
+	//font-family: Arial,Helvetica,sans-serif;
+}
+.button.left-part,
+.button.left-part span
+{
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+}
+.button.right-part,
+.button.right-part span
+{
+	-webkit-border-radius: 0 4px 4px 0;
+	-moz-border-radius: 0 4px 4px 0;
+	border-radius: 0 4px 4px 0;
+}
+
+.button
+{
+	width: auto;
+	overflow: visible; /* removes extra side padding in IE */
+	position: relative;
+	//margin: 5px 0;
+	padding: 0px;
+	white-space: nowrap;
+	outline: none;
+	cursor: pointer;
+	border: 1px solid #999;/* IE */
+	border: rgba(0, 0, 0, .2) 1px solid;/* Saf4+, Chrome, FF3.6 */
+	border-bottom:rgba(0, 0, 0, .4) 1px solid;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	background: -moz-linear-gradient(
+		center top,
+		rgba(255, 255, 255, .1) 0%,
+		rgba(0, 0, 0, .1) 100%
+	);/* FF3.6 */
+	background: -webkit-gradient(
+		linear,
+		center bottom,
+		center top,
+		from(rgba(0, 0, 0, .1)),
+		to(rgba(255, 255, 255, .1))
+	);/* Saf4+, Chrome */
+	//filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000'); /* IE6,IE7 */
+	//-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#19FFFFFF', EndColorStr='#19000000')"; /* IE8 */
+	-moz-user-select: none;
+	-webkit-user-select:none;
+	-khtml-user-select: none;
+	user-select: none;
+    z-index: 900;
+	vertical-align: bottom;
+}
+.button::-moz-focus-inner {
+    padding: 0;
+	border: 0
+}
+.button.full,
+.button.full span
+{
+	display: block;
+}
+.button:hover,
+.button.hover
+{
+	background: -moz-linear-gradient(
+		center top,
+		rgba(255, 255, 255, .2) 0%,
+		rgba(255, 255, 255, .1) 100%
+	);/* FF3.6 */
+	background: -webkit-gradient(
+		linear,
+		center bottom,
+		center top,
+		from(rgba(255, 255, 255, .1)),
+		to(rgba(255, 255, 255, .2))
+	);/* Saf4+, Chrome */
+	//filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#33FFFFFF', EndColorStr='#19FFFFFF'); /* IE6,IE7 */
+	//-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#33FFFFFF', EndColorStr='#19FFFFFF')"; /* IE8 */
+	
+    z-index: 1000;
+}
+.button:active,
+.button.active
+{
+	top:1px;
+}
+.button span
+{
+	position: relative;
+	padding:0.5em 1.3em;
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, .2) inset;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+	white-space: nowrap;
+}
+
+/*** Sizes ***/
+.button span.small
+{
+	font-size:12px;
+}
+.button span.medium
+{
+	font-size:14px;
+}
+.button span.big
+{
+	font-size:16px;
+}
+.button span.large
+{
+	font-size:18px;
+}
+
+/*** Colors ***/
+.button.black {
+	background-color: #333333;
+}
+.button.gray {
+	background-color: #666666;
+}
+.button.white {
+	background-color: #FFFFFF;
+}
+.button.white span{
+	color: #666666;
+}
+.button.red {
+	background-color: #e62727;
+}
+.button.orange {
+	background-color: #ff5c00;
+}
+.button.magenta {
+	background-color: #A9014B;
+}
+.button.yellow {
+	background-color: #ffb515;
+}
+.button.blue {
+	background-color: #00ADEE;
+}
+.button.pink {
+	background-color: #e22092;
+}
+.button.green {
+	background-color: #91bd09;
+}
+.button.rosy {
+	background-color: #F16C7C;
+}
+.button.brown {
+	background-color: #804000;
+}
+.button.purple {
+	background-color: #800080;
+}
+.button.cyan {
+	background-color: #46C7C7;
+}
+.button.gold {
+	background-color: #D4A017;
+}
+
+
+/*** STORE SPECIFIC BUTTONS ***/
+
+.btn {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 20px;
+	height: 32px;
+	line-height: 30px;
+
+	color: @white;
+	font-size: 12px;
+	text-decoration: none;
+
+	border: 2px solid @white;
+	.border-radius(16px);
+	.box-shadow(1px 1px 5px -1px rgba(0,0,0,0.3));
+
+	background-color: @background-color-green;
+	&.red {
+		background-color: @background-color-red;
+	}
+
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&.small {
+		padding: 0 15px;
+		height: 24px;
+		line-height: 22px;
+		.border-radius(0);
+	}
+
+/*
+	&.blue { .gradient(@btn_light, @btn_dark); }
+	&.red { .gradient(@red_fire, @red_brick); }
+	&.purple { .gradient(@purple_light, @purple_dark); }
+	&.green { background: @link-green; }
+*/
+
+	&.cart {
+		padding: 0 8px 0 5px;
+		font-weight: bold;
+		text-transform: uppercase;
+		.border-radius(16px);
+
+		&::before {
+			content: '';
+			display: inline-block;
+			margin-right: 3px;
+			width: 32px;
+			height: 28px;
+			vertical-align: top;
+			.sprite_map(0,3);
+		}
+	}
+
+	&.go {
+		font-weight: bold;
+		margin: 0 0 5px 5px;
+		padding-right: 15px;
+
+		&::after {
+			content: '';
+			display: inline-block;
+			width: 8px;
+			height: 10px;
+			margin-left: 10px;
+			.sprite_map(1.5, 4);
+			vertical-align: baseline;
+		}
+	}
+}

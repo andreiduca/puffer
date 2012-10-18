@@ -1,0 +1,31 @@
+@media all and (min-width: 980px) and (max-width: 1300px) {
+	@gridLayoutWidth:	960px;
+	@gridGutter:		20px;
+	@gridColumns:		12;
+	@columns:			12;
+	@import "system.less";
+
+	#wrapper {
+		.gridWrapper(1);
+
+		article {
+			.gridColumn(9, left);
+
+			> h1, > div {
+				.gridBox(9);
+			}
+			> p {
+				.gridBox(1, @gridColumns, left, 2/9);
+			}
+		}
+		aside {
+			.gridColumn(3, right);
+
+			> h1, > form {
+				.gridBox(3);
+			}
+		}
+	}
+}
+
+
