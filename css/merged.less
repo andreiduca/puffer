@@ -1,6 +1,33 @@
-@import "reset/all.less";
-@import "grid/all.less";
-@import "buttons/all.less";
-@import "forms/default.less";
-@import "layout/styles.less";
-@import "typography/all.less";
+/*
+ * Reset browser default styles
+ ***/
+@import "utils/reset/all.less";
+
+
+/*
+ * Grid structures
+ ***/
+//@import "grid/all.less";
+@import "grid/structure-large.less";
+@import "grid/structure-normal.less";
+@import "grid/structure-netbook.less";
+@import "grid/structure-tablet.less";
+@import "grid/structure-mobile.less";
+
+
+/*
+ * Layout styles follow:
+ ***/
+
+/* Buttons */
+@import "styles/buttons/default.less";
+@import "styles/buttons/super-awesome.less";
+
+/* Forms */
+@import "styles/forms/default.less";
+
+/* Layout styles */
+@import "styles/layout/default.less";
+
+/* Typography */
+@import "styles/typography/all.less";
