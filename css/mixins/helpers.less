@@ -1,21 +1,5 @@
 @import "../variables/all.less";
 
-/*** Classic clearfix ***/
-* html .clearfix {
-	height: 1%;
-}
-*+html .clearfix {
-	display: inline-block;
-}
-.clearfix:after {
-	content: '.';
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-}
-
-
 /*** SPRITES ***/
 .sprite_map(@itemX, @itemY, @offsetX: 0px, @offsetY: 0px) {
 	background-image: url("@{imgdir}/sprite.png");
@@ -24,9 +8,6 @@
 }
 
 /*** Reusable functions ***/
-.clear {
-	clear: both;
-}
 
 .ulReset(@margin: 0, @padding: 0){
 	list-style: none;
@@ -80,8 +61,8 @@
 }
 
 // 4-steps gradient (glossy)
-.gradient(@from, @step_1, @step_2, @to) {
-	background: @to; /* Old browsers */
+.gradient(@from, @step_1, @step_2, @to, @default: @to) {
+	background: @default; /* Old browsers */
 	background: linear-gradient(top,  @from 0%,@step_1 50%,@step_2 51%,@to 100%); /* W3C */
 	background: -o-linear-gradient(top,  @from 0%,@step_1 50%,@step_2 51%,@to 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  @from 0%,@step_1 50%,@step_2 51%,@to 100%); /* IE10+ */
@@ -89,4 +70,19 @@
 	background: -webkit-linear-gradient(top,  @from 0%,@step_1 50%,@step_2 51%,@to 100%); /* Chrome10+,Safari5.1+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@from), color-stop(50%,@step_1), color-stop(51%,@step_2), color-stop(100%,@to)); /* Chrome,Safari4+ */
 	//filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '@from', endColorstr = '@to', GradientType = 0); /* IE6-9 */
+}
+
+// simplified gradients
+.gradient_smooth(@color, @contrast: 10%) {
+	@from: lighten(@color, @contrast);
+	@to: darken(@color, @contrast);
+	.gradient(@from, @to, @color);
+}
+.gradient_glossy(@color, @contrast: 10%, @saturation: 10%) {
+	@to: @color;
+	@step_2: darken(@color, @contrast * 1.5);
+	@step_1: desaturate(@color, @saturation * 1.5);
+	@from: lighten(@color, @contrast);
+
+	.gradient(@from, @step_1, @step_2, @to, @color);
 }
