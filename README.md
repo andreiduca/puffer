@@ -141,7 +141,7 @@ And the grid declarations:
 		}
 	}
 
-Here, the ratio is 2/9, meaning that for the `#comments` and `#related` we transform the 9 columns of the <article> into just 2. Each of these two boxes span across one of this new columns.
+Here, the ratio is 2/9, meaning that for the `#comments` and `#related` we transform the 9 columns of the `<article>` into just 2. Each of these two boxes span across one of this new columns.
 The `@columns` parameter is a reference number used in the calculations of the new columns width.
 For fixed layouts, this is always the number of columns of the full grid (here 12), whereas for fluid layouts (because of nested percentages) we have to send the number of columns of the containing element. Like so:
 
