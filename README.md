@@ -62,7 +62,7 @@ The grid system
 Thanks to LESS and inspired by [semantic.gs](http://semantic.gs/), the grid engine lets you draw your grid layout without adding `.spanX` or `.grid_Y` classes to your markup.
 It comes with mixins to easily define sections, wrappers, columns and blocks of content directly inside your LESS declarations.
 
-# Basics
+### Basics
 
 	<div id="wrapper">
 		<header>
@@ -113,7 +113,7 @@ It comes with mixins to easily define sections, wrappers, columns and blocks of 
 
 Clean markup and intuitive declarations.
 
-# Column substitution
+### Column substitution
 
 Sometimes, a design needs to break from the overall layout. For example, we have a 9 columns `<article>` on the left and a 3 columns `<aside>` floated to the right. But inside the `<article>` we have a section that need to be separated in half.
 Of course, on the standard grid system we cannot do that, unless we change the grid to 24 columns, with a much smaller column size. But that means we have to rewrite all the other declarations we have so far. Which is dumb!
