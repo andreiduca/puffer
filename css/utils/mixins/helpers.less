@@ -1,4 +1,15 @@
-@import "../../utils/variables/all.less";
+@import "../../utils/variables/all";
+
+/* Floatings should be cleared */
+.clearfix() {
+	&:after {
+		content: " ";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
 
 /*** SPRITES ***/
 .sprite_map(@itemX, @itemY, @offsetX: 0px, @offsetY: 0px) {
@@ -9,11 +20,16 @@
 
 /*** Reusable functions ***/
 
-.ulReset(@margin: 0, @padding: 0){
+.ulCfReset(@margin: 0, @padding: 0) {
+/** with clearfix, for floating elements **/
+	.ulReset(@margin, @padding);
+	.clearfix;
+}
+.ulReset(@margin: 0, @padding: 0) {
+/** simple, no clearfix **/
 	list-style: none;
 	margin: @margin;
 	padding: @padding;
-	.clearfix;
 }
 
 
